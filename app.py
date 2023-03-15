@@ -9,11 +9,51 @@ import json
 from bs4 import BeautifulSoup
 import os
 import streamlit as st
+import subprocess
+import sys
+
+# if not os.path.isdir("/tmp/wc-lib"):
+
+#     # Download wordcloud to disk
+#     with open("/tmp/wordcloud-1.8.1-cp39-cp39-win_amd64.whl", "wb") as file:
+#         response = requests.get(
+#             "https://download.lfd.uci.edu/pythonlibs/archived/wordcloud-1.8.1-cp39-cp39-win_amd64.whl"
+#         )
+#         file.write(response.content)
+#     # get our current dir, to configure it back again. Just house keeping
+#     default_cwd = os.getcwd()
+#     os.chdir("/tmp")
+#     # untar
+#     # build
+#     os.system("./configure --prefix=/home/appuser")
+#     os.system("make")
+#     # install
+#     os.system("make install")
+#     # back to the cwd
+#     os.chdir(default_cwd)
+#     sys.stdout.flush()
+
+# # add the library to our current environment
+# from ctypes import *
+
+# lib = CDLL("/home/appuser/lib/libta_lib.so.0.0.0")
+# # import library
+# try:
+#     from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+# except ImportError:
+#     subprocess.check_call([sys.executable, "-m", "pip", "install", "--global-option=build_ext", "--global-option=-L/home/appuser/lib/", "--global-option=-I/home/appuser/include/", "tmp"])
+# finally:
+#     from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+
+
+
+
 
 def reset_justia_url():
     st.session_state['url_search'] = ""
 def reset_select_box_option():
     st.session_state.dropdown_search = "Select"
+
 
 st.title("Welcome to the Legal Opinion Word Cloud Generator")
 st.write("Enter the url from Justia of the opinion you want to word cloud .i.e. https://supreme.justia.com/cases/federal/us/388/1/")
