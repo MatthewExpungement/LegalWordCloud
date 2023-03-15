@@ -50,13 +50,13 @@ if(url != "" or famous_case != 'Select'):
 
     if(selected_image == 'Rectangle'):
         #Regular word cloud
-        wordcloud = WordCloud(background_color="white",max_words=number_of_words,stopwords=stopwords, max_font_size=40).generate(text)
+        wordcloud = WordCloud(background_color="white",max_words=number_of_words,stopwords=stopwords, max_font_size=40,random_state=42).generate(text)
         plt.imshow(wordcloud, interpolation='bilinear')
     else:
         #Create and generate a word cloud image:
         d = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
         image_coloring = np.array(Image.open(path.join(d, "Images/" + selected_image + ".jpg")))
-        wordcloud = WordCloud(background_color="white", max_words=500, mask=image_coloring,stopwords=stopwords, max_font_size=40, random_state=42).generate(text)
+        wordcloud = WordCloud(background_color="white", max_words=number_of_words, mask=image_coloring,stopwords=stopwords, max_font_size=40, random_state=42).generate(text)
         image_colors = ImageColorGenerator(image_coloring)
         plt.imshow(wordcloud.recolor(color_func=image_colors), interpolation="bilinear")
 
