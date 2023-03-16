@@ -31,7 +31,7 @@ with st.sidebar:
     st.write("Or select from famous cases")
     famous_cases = ['Select','Loving v. Virginia, 388 U.S. 1 (1967)','Roe v. Wade, 410 U.S. 113 (1973)','Brown v. Board of Education of Topeka, 347 U.S. 483 (1954)']
     famous_case = st.selectbox("Select Famous Case",famous_cases,key='dropdown_search',on_change=reset_justia_url)
-    exclude_words_basics = ["state",'footnote','page','statute','court','code ann','case','statutes','repl vol','act','v','Â','ann','F Supp']
+    exclude_words_basics = ["state",'footnote','page','statute','court','code ann','case','statutes','repl vol','act','v','Â','ann','F Supp','See']
     exclude_words_raw = st.text_area("Words to exclude",value=",".join(exclude_words_basics))
     exclude_words = exclude_words_raw.split(",")
     number_of_words = st.slider("How many words should the word cloud be capped at?",0,1000,50)
