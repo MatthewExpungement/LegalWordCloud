@@ -34,7 +34,7 @@ with st.sidebar:
     exclude_words_basics = ["state",'footnote','page','statute','court','code ann','case','statutes','repl vol','act','v','Â','ann','F Supp','See']
     exclude_words_raw = st.text_area("Words to exclude",value=",".join(exclude_words_basics))
     exclude_words = exclude_words_raw.split(",")
-    number_of_words = st.slider("How many words should the word cloud be capped at?",0,1000,50)
+    number_of_words = st.slider("How many words should the word cloud be capped at?",0,1000,150)
     images = ['Rectangle','Heart','Gavel']
     selected_image = st.selectbox("Select Background Image",images)
     st.text("The word cloud will generate on change of any attribute above.")
