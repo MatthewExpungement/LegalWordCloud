@@ -23,7 +23,7 @@ if 'text' not in st.session_state:
 # Generates a sidebar
 with st.sidebar:
     st.title("Welcome to the Legal Opinion Word Cloud Generator")
-    st.write("Enter the url from Justia of the opinion you want to word cloud .i.e. https://supreme.justia.com/cases/federal/us/388/1/")
+    st.write("Enter the url from Justia of the opinion you want to word cloud .i.e. https://supreme.justia.com/cases/federal/us/576/14-556/")
     url = st.text_input("Enter Justia url",key='url_search',on_change=reset_select_box_option)
     if(url[0:26] != 'https://supreme.justia.com' and url != ""):
         st.error("URL Needs to start with https://supreme.justia.com")
@@ -31,7 +31,7 @@ with st.sidebar:
     st.write("Or select from famous cases")
     famous_cases = ['Select','Loving v. Virginia, 388 U.S. 1 (1967)','Roe v. Wade, 410 U.S. 113 (1973)','Brown v. Board of Education of Topeka, 347 U.S. 483 (1954)']
     famous_case = st.selectbox("Select Famous Case",famous_cases,key='dropdown_search',on_change=reset_justia_url)
-    exclude_words_basics = ["state",'footnote','page','statute','court','code ann','case','statutes','repl vol','act','v','Â','ann','F Supp','See']
+    exclude_words_basics = ["state",'footnote','page','statute','court','code ann','case','statutes','repl vol','act','v','Â','ann','F Supp','See','F  Supp','Id']
     exclude_words_raw = st.text_area("Words to exclude",value=",".join(exclude_words_basics))
     exclude_words = exclude_words_raw.split(",")
     number_of_words = st.slider("How many words should the word cloud be capped at?",0,1000,150)
